@@ -2,26 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes myanimation {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(30deg);
+  }
+  100% {
+    transform: rotateY(0deg);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes slidedown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#searchBox:focus {
+  outline: none !important;
+}
+#searchBox::placeholder {
+  color: black;
+}
+#navBar {
+  margin-top: 2rem;
+  animation: slidedown 0.25s ease-out forwards;
+}
+nav div div span::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0%;
+  background-color: #8a8a8a;
+  transition: linear 0.1s;
+  transform-origin: left;
+}
+nav div div span:hover::after {
+  width: 100%; /* Expand the width to 100% on hover */
+}
+.ButtonCover .active {
+  transform: rotate(45deg);
+}
+#MainImage {
+  top: -39%;
+  right: 0%;
+}
+#title {
+  width: 23%;
+  word-spacing: 5px;
+  letter-spacing: 5px;
+}
+
+.Image {
+  aspect-ratio: 1/2;
+}
+.active {
+  transform: rotateY(30deg);
+}
+.ice {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+}
+#r-btn {
+  box-shadow: -10px 0px 10px rgba(105, 105, 105, 0.346);
+}
+#l-btn {
+  box-shadow: 10px 0px 10px rgba(105, 105, 105, 0.346);
+}
+#slider {
+  transition: 0.25s ease-out;
 }
