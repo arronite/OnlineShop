@@ -25,13 +25,17 @@
 
 #searchBox:focus {
   outline: none !important;
+  border: none !important;
 }
+
 #searchBox::placeholder {
-  color: black;
+  font-size: large;
 }
+
 #navBar {
   margin-top: 2rem;
   animation: slidedown 0.25s ease-out forwards;
+  z-index: 20;
 }
 nav div div span::after {
   content: "";
@@ -49,17 +53,22 @@ nav div div span:hover::after {
   transform: rotate(45deg);
 }
 #MainImage {
-  top: -39%;
-  right: 0%;
+  width: 37rem;
+  top: -52%;
+  right: 4%;
+  z-index: 0;
+}
+#MainImage::selection {
+  background: none;
 }
 #title {
-  width: 23%;
+  width: 35%;
   word-spacing: 5px;
   letter-spacing: 5px;
 }
 
 .Image {
-  aspect-ratio: 1/2;
+  aspect-ratio: 1/3;
 }
 .active {
   transform: rotateY(30deg);
@@ -76,4 +85,12 @@ nav div div span:hover::after {
 }
 #slider {
   transition: 0.25s ease-out;
+}
+.sideBar {
+  width: 0%;
+
+  transition: 0.5s ease-out;
+}
+.activeSideBar {
+  width: 20%;
 }
