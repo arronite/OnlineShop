@@ -1,20 +1,16 @@
 "use client";
 
-import Nav from "./components/Nav";
+import Nav from "../components/Nav";
 import Image from "next/image";
 
 import { useEffect, useRef, useState } from "react";
-import CustomSwiper from "./components/CustomSwiper";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { setRef } from "./redux/sideBarSlice/sideBarSlice";
+import CustomSwiper from "../components/CustomSwiper";
 
 export default function Home() {
   const sideBarRef = useRef();
-  const dispatch = useDispatch();
-  const ref = useSelector((state) => state.ref.ref);
+  const [ref, setRef] = useState();
   useEffect(() => {
-    dispatch(setRef(sideBarRef));
+    setRef(sideBarRef);
     console.log("ref set");
   }, sideBarRef);
 
@@ -26,10 +22,10 @@ export default function Home() {
           className="flex flex-col overflow-hidden w-full h-1/2 relative"
         >
           {ref && <Nav btnRef={ref.current} />}
-          <div className=" mx-28 h-full py-10  my-20 flex flex-col ">
+          <div className=" mx-28 h-full    my-15 flex flex-col ">
             <span
               id="title"
-              className="h-48 w-36  text-6xl font-bold dark:text-slate-50"
+              className="h-36 w-36  text-6xl font-bold dark:text-slate-50"
             >
               BIGGEST DEALS ON TOP BRANDS
             </span>
@@ -57,7 +53,19 @@ export default function Home() {
           <CustomSwiper />
         </div>
       </div>
-      <div ref={sideBarRef} className=" sideBar h-screen"></div>
+      <div
+        ref={sideBarRef}
+        className=" overflow-hidden sideBar h-screen dark:text-slate-200 "
+      >
+        <div className="flex flex-col h-full my-20">
+          <span> About Us</span>
+          <span> About Us</span>
+          <span> About Us</span>
+          <span> About Us</span>
+          <span> About Us</span>
+          <span> About Us</span>
+        </div>
+      </div>
     </main>
   );
 }

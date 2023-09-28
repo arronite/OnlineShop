@@ -1,3 +1,8 @@
 {
-  "extends": ["next/babel", "next/core-web-vitals"]
+  "parser": "@babel/eslint-parser", // Use the Babel parser
+  "plugins": ["@babel"], // Add the Babel plugin
+  "extends": ["eslint:recommended"], // Extend with recommended rules
+  "rules": {
+    // Add or configure rules as needed
+  }
 }

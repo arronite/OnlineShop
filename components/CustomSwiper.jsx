@@ -19,7 +19,7 @@ import "swiper/css/scrollbar";
 
 import LoadingSkeleton from "./LoadingSkeleton";
 import Link from "next/link";
-import { fetchData } from "../redux/dataSlice/dataSlice";
+import { fetchData } from "../app/redux/dataSlice/dataSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -88,26 +88,22 @@ export default () => {
           autoplay
           breakpoints={{
             0: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            640: {
               slidesPerView: 2,
               spaceBetween: 10,
             },
-            1000: {
+            640: {
               slidesPerView: 3,
               spaceBetween: 10,
             },
-            1500: {
+            1000: {
               slidesPerView: 4,
               spaceBetween: 10,
             },
-            2000: {
+            1500: {
               slidesPerView: 5,
               spaceBetween: 10,
             },
-            2670: {
+            2000: {
               slidesPerView: 6,
               spaceBetween: 10,
             },

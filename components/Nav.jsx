@@ -1,21 +1,29 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Nav = ({ btnRef }) => {
   const darkMode = useRef();
+  useEffect(() => {
+    if (document.documentElement.classList.contains("dark")) {
+      darkMode.current.checked = true;
+    }
+  });
 
   const ShowSearches = (e) => {};
   const handleChange = (e) => {
     if (e.target.checked) {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   };
   return (
     <nav
       id="navBar"
-      className="flex w-full absolute text-2xl font-bold h-20 uppercase justify-center items-center dark:text-slate-50 "
+      className="flex w-full relative items-center mb-24 text-2xl font-bold h-20 uppercase justify-center dark:text-slate-50 "
     >
       <div className="flex w-3/4 h-full items-center justify-start ">
         <div className="flex justify-center items-center w-full mx-2 ">
@@ -25,7 +33,9 @@ const Nav = ({ btnRef }) => {
           <span className="dark:after:bg-white">Home</span>
         </div>
         <div className="flex justify-center items-center w-full mx-2 ">
-          <span className="dark:after:bg-white">Categories</span>
+          <Link href="/categories">
+            <span className="dark:after:bg-white">Categories</span>
+          </Link>
         </div>
         <div className="flex justify-center items-center w-full mx-2 ">
           <span className="dark:after:bg-white">Winter Sale</span>

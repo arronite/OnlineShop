@@ -24,10 +24,6 @@ export default function RootLayout({ children }) {
     } else {
       document.documentElement.classList.remove("dark");
     }
-
-    // Whenever the user explicitly chooses light mode
-
-    // Whenever the user explicitly chooses to respect the OS preference
   }, []);
   return (
     <Provider store={store}>
